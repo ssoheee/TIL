@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Form List</h1>
+<form> <!-- 반드시 꼭 써줘야함 -->
+<fieldset>
+<legend>Employee Register</legend> <!-- 테두리 형성 -->
+
+<input type="hidden" namke="geo" value="fff"> <!-- 숨겨서 정보를 전달받음 -->
+
+Text <input type="text" name="tx"><br>
+Password <input type="password" name="pwd"><br>
+
+<label for="male">Male</label>
+<input id="male" type="radio" name="g" value="m"> <!-- 아이디로 속성체크! -->
+FeMale <input type="radio" name="g" value="f">
+Aje <input type="radio" name="g" value="a"><br>
+<!-- radio:보기 중에 하나 고르는것, 다 같이 g로 묶여있음 -->
+
+<hr> <!-- hr 또한 원래는 쓰지 않고, 쓰면 안됨 -->
+Apple <input type="checkbox" name="f" value="a">
+Grape <input type="checkbox" name="f" value="g">
+Orange <input type="checkbox" name="f" value="o">
+Melon <input type="checkbox" name="f" value="m">
+<!-- 체크박스는 동시에 여러개 선택가능, f로 묶여있음 -->
+<hr>
+
+<select name="car">
+<option value="h">Hyundai</option>
+<option value="k">Kia</option>
+<option value="s">SSang</option>
+<option value="c">Chev</option>
+</select>
+<hr>
+
+File <input type="file" name="ff">
+<hr>
+<input type="button" value="Button">
+<hr>
+<input type="submit" value="SUBMIT">
+</fieldset>
+</form>
+
+</body>
+</html>

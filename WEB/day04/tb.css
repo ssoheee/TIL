@@ -1,0 +1,35 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black|Black+Han+Sans|Do+Hyeon|Faster+One|Permanent+Marker|Saira+Semi+Condensed|Staatliches&display=swap');
+
+.t1 {
+	margin: 10px auto;
+	border: 2px solid gray;
+	width: 500px;
+	height:200px;
+	border-collapse:collapse;
+	font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+.t1>tbody>tr:hover
+{
+color:gray;
+}
+
+.t1>thead>tr>th {
+	background: lightgray;
+}
+
+.t1>tbody>tr>td:nth-child(2n+1)
+{
+ text-align:center;
+}
+
+.t1>tbody>tr>td:nth-child(2)
+{
+ text-align:left;
+}
+
+.t1>tbody>tr>td:nth-child(4)
+{
+ text-align:right;
+}

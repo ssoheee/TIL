@@ -1,0 +1,18 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+
+.bt>a {
+	font-family: 'Viga', sans-serif;
+	font-size:1.5em;
+	display:gray; /* 이 속성을 바꿔준 게 중요 */
+	width:150px;
+	hieght:30px;
+	text-align:center;
+	line-height:30px;
+	margin:10px auto;
+}
+
+.bt>a:hover
+{
+color:gray;
+}

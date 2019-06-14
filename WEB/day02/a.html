@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+
+<style>
+a{
+text-decoration:none;
+color:red;
+font-size:2em;} 
+</style> <!-- css -->
+
+<script>
+function send(){
+alert('Are You OK?');
+location.href='b1.html';
+};
+</script> <!--자바스크립트 -->
+
+<title>Insert title here</title>
+</head>
+
+<body>
+
+<!-- <a href="">도 이미지처럼 인라인 -->
+<!-- target의 디폴트는 self, blank는 잘 안씀(보안 때문에) -->
+<!-- 동일한 변수나 이름을 써도 에러는 안나지만, 먼저 나오는 애에게 먼저 감 -->
+
+<h1>Hyper Link</h1>
+<h3><a href="b1.html" target="_blank">Click1</a></h3>
+<a href="b/b2.html">Click2</a>
+<a href="#h_target">Click3</a> <!-- #은 문서내로 이동 -->
+<a href="file/tomcat.zip">Click4</a>
+<a href="#" onclick="send();">Click5</a> 
+<!-- 아무 작업도 안할 땐 #으로 막아놓기, 클릭하면 팝업창 뜸 -->
+<h1>Header1</h1>
+<h1>Header1</h1>
+<h1>Header1</h1>
+<h1>Header1</h1>
+<h1>Header1</h1>
+<h1>Header1</h1>
+<h1>Header1</h1>
+<h1 id="h_target">Header1</h1> <!-- element에 id를 부여(attribute) -->
+<h1>Header1</h1>
+<h1>Header1</h1>
+
+
+</body>
+</html>

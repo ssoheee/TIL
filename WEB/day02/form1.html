@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="EUC-KR">
+<script>
+function login(f){
+	var c = confirm('Login ..');
+	if (c==true){
+		f.method='GET';
+		f.action='a';
+		f.submit();		
+	};
+};
+</script>
+<title>Insert title here</title>
+</head>
+
+
+<body>
+<h1>From Test</h1>
+
+<form>
+ID <input type="text" name="nm"><br> <!-- 원래는 br 쓰지 않음-->
+PWD <input type="password" name="pwd"><br> <!-- 두개의 데이타 -->
+<input type="reset" value="RESET">
+<input type="button" value="LOGIN" onclick="login(this.form);"> <!-- 클릭하면 폼과 폼 사이에 있는 정보를 넣어서 로그인한다 -->
+
+
+</form>
+
+</body>
+
+
+</html>
