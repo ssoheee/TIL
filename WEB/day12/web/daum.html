@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6aa6c11f183d05f3c7006fec6522d483"></script>
+
+	<style></style>
+	<script>
+
+		$(document).ready(function () {
+
+			var container = document.getElementById('map');
+			var options = {
+				center: new daum.maps.LatLng(33.429334, 126.307179),
+				level: 3
+			};
+
+			var map = new daum.maps.Map(container, options);
+
+			$('button').click(function () {
+				var center = new daum.maps.LatLng(37.544912, 127.038591);
+				map.setCenter(center);
+			});
+
+		});
+	</script>
+</head>
+
+<body>
+	<button>Seoul</button>
+	<div id="map" style="width:500px;height:400px;"></div>
+</body>
+
+</html>

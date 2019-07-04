@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+
+	<style></style>
+	<script>
+		function makeChart(data) {
+			Highcharts.chart('container', {
+				chart: {
+					type: 'line'
+				},
+				title: {
+					text: 'Seoul Monthly Average Temperature'
+				},
+				subtitle: {
+					text: ''
+				},
+				xAxis: {
+					categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+				},
+				yAxis: {
+					title: {
+						text: 'Temperature (°C)'
+					}
+				},
+				plotOptions: {
+					line: {
+						dataLabels: {
+							enabled: true
+						},
+						enableMouseTracking: false
+					}
+				},
+				series: data
+			});
+		}; // end makeChart
+
+		function Temp(n, d) { // 배열값을 html에서 넣어주기 위한 함수
+			this.name = n;
+			this.data = d;
+		};
+
+		function parsing(data) {
+			var ts = $(data).find('temp'); // 값이 여러개일 때 배열로 나온다.
+			var datas = [];
+			var ds = [];
+			ts.each(function (index, item) {
+				var name = $(this).find('name').text();
+				var d = $(this).find('data');
+				var ds = [];
+				d.each(function (index, item) {
+					ds.push(Number($(item).text()));
+				});
+				var obj = new Temp(name, ds);
+				datas.push(obj);
+			});
+			
+			makeChart(datas); // object
+		};
+
+
+		function getData() {
+			$.ajax({
+				url: 'temp.xml',
+				success: function (data) {
+					parsing(data); // 받은 데이터들을 배열에 넣어주기 위해서 (데이터값이 여러개 일 땐 배열로 받아온다.)
+					//makeChart(data);
+				}
+			});
+		};
+
+		$(document).ready(function () {
+			getData();
+			//setInterval(getData, 5000);
+		});
+	</script>
+</head>
+
+<body>
+	<h1>MY CHARTS</h1>
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</body>
+
+</html>

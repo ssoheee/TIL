@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<style>
+div {
+			width: 300px;
+			border: 1px solid black;
+			text-align: center;
+		}</style>
+<script>
+function display(data) {
+			$('div').empty();
+			$(data).each(function (index, item) {
+				var str = '';
+				str += '<h3>';
+				str += item.rank + " " + item.keyword+ " " ;
+				if(item.type=='up'){
+					str+='<img src="up.png">'
+				}else {
+					str+='<img src="down.png">'
+				}
+				str +=  " " + item.cnt + " " + '</h3>';
+				$('div').append(str);
+			}); //jquery용 for문
+
+		};
+
+		function getData() {
+			$.ajax({
+				url: 'main',
+				success: function (result) {
+					//alert(result);
+					display(eval(result)); // string을 자바스크립트로
+				}
+			});
+		};
+
+		$(document).ready(function () {
+			getData();
+			setInterval(getData,2000);
+		});
+</script>
+</head>
+<body>
+<h1>MAIN PAGE</h1>
+<div></div>
+</body>
+</html>

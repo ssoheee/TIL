@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+
+<script>
+function popup(f){
+	var c = confirm('Thank You!');
+	if (c==true){
+		f.method='GET';
+		f.action='index.html';
+		f.submit();		
+	};
+};
+</script>
+
+
+<title>Insert title here</title>
+</head>
+<body>
+<h1>SIGNUP PAGE</h1>
+
+<form> <!-- 반드시 꼭 써줘야함 -->
+<table>
+<tbody>
+<tr><td>ID</td><td><input type="text" name="id"></td></tr>
+<tr><td>PWD</td><td><input type="password" name="pwd"></td></tr>
+<tr><td>EMAIL</td><td><input type="email" name="e"></td></tr>
+<tr><td>NAME</td><td><input type="text" name="nm"></td></tr>
+<tr><td>GENDER</td><td>
+<label for="male">Male</label>
+<input id="male" type="radio" name="g" value="m"> 
+<label for="male">FeMale</label>
+<input id="female" type="radio" name="g" value="f"></td></tr>
+<tr><td>BIRTH</td><td><input type="date" name="birth"></td></tr>
+<tr><td>PHONE</td> <td><input type="tel" 
+pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+title="###-####-####"
+name="t" required="required"></td></tr>
+<tr><td>Nationality</td>
+<td><select name="nat">
+<option value="k">Korea</option>
+<option value="u">USA</option>
+<option value="e">England</option>
+<option value="c">China</option>
+<option value="f">France</option>
+</select></td></tr>
+<tr><td>Address</td><td><input type="text" name="adr"></td></tr>
+<tr><td></td><td></td><td><input type="submit" value="SUBMIT" onclick="popup(this.form);"></td></tr>
+</tbody>
+</table>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<style>
+		table {
+			text-align: center;
+			float: left;
+		}
+
+		#order {
+			width: 400px;
+		}
+
+		#check {
+			width: 400px;
+			height: 400px;
+		}
+	</style>
+
+	<script>
+
+		$(document).ready(function () {
+
+			var price = '';
+			var totalamount = '';
+			var cnt = 0;
+
+			$('#c').click(function(){
+				$(location).attr('href', 'k.html');
+			})
+
+			$('input:eq(0)').click(function () {
+				cnt++;
+				price += "+" + 4000;
+				totalamount = eval(price);
+				$('#test').css('display', '');
+				$('#display:eq(0)').html('HOT 아메리카노');
+				$('#count').html(cnt);
+				$('#total').html(totalamount);
+			});
+
+			$('#minus:eq(0)').click(function () {
+				cnt--;
+				if (cnt <= 0) {
+					price += "-" + 4000;
+					totalamount = eval(price);
+					$('#total').html(totalamount);
+					$('#test').css('display', 'none');
+					return;
+				}
+				price += "-" + 4000;
+				totalamount = eval(price);
+				$('#count').html(cnt);
+				$('#total').html(totalamount);
+			});
+
+			$('#plus:eq(0)').click(function () {
+				cnt++;
+				price += "+" + 4000;
+				totalamount = eval(price);
+				$('#count').html(cnt);
+				$('#total').html(totalamount);
+			});
+
+			$('#o').click(function () {
+				var pp = $('#p').val();
+				var tt =$('input[name="takeout"]:checked').val();
+
+				if (totalamount == '0' || totalamount == '') {
+					alert('메뉴를 선택하세요!');
+					return;
+				}
+
+				//
+				if (pp == '' || pp == null) {
+					alert('결제수단을 선택하세요!');
+					return;
+				}
+
+				//
+				if (tt == '' || tt == null) {
+					alert('서비스 이용 방법을 선택하세요!');
+					return;
+				}
+
+				var cc = confirm('주문하시겠습니까?');
+				if (cc == true) {
+					$('#of').attr('method', 'get'); // get 방식으로 보냄
+					$('#of').attr('action', 'a.jsp');
+					$('#of').submit(); // submit은 그냥 날리는거
+				} // 서버로 보내는 방법
+
+				alert('주문 완료');
+				$(location).attr('href', 'k.html');
+
+			});
+
+
+		}); // doc end
+	</script>
+</head>
+
+<body>
+
+	<!-- 메뉴판 -->
+	<table id="menu">
+		<thaed>
+			<tr>
+				<th colspan="4">
+					<h1>CAFE</h1>
+				</th>
+			</tr>
+		</thaed>
+		<tbody>
+			<tr>
+				<td><input type="image" img src="1.jpg" id="HOT 아메리카노" value="4000"></td>
+				<td><input type="image" img src="2.jpg" id="HOT 카페라떼" value="4500"></td>
+				<td><input type="image" img src="3.jpg" id="아인슈페너" value="5000"></td>
+				<td><input type="image" img src="4.png" id="HOT 초코라떼" value="5000"></td>
+			</tr>
+			<tr>
+				<td>HOT 아메리카노</td>
+				<td>HOT 카페라떼</td>
+				<td>아인슈페너</td>
+				<td>HOT 초코라떼</td>
+			</tr>
+			<tr>
+				<td>4000</td>
+				<td>4500</td>
+				<td>5000</td>
+				<td>5000</td>
+			</tr>
+			<tr>
+				<td><input type="image" img src="5.png" id="ICE 아메리카노" value="4000"></td>
+				<td><input type="image" img src="6.jpg" id="ICE 카페라떼" value="4500"></td>
+				<td><input type="image" img src="7.jpg" id="플랫화이트" value="5000"></td>
+				<td><input type="image" img src="8.png" id="ICE 초코라떼" value="5000"></td>
+			</tr>
+			<tr>
+				<td>ICE 아메리카노</td>
+				<td>ICE 카페라떼</td>
+				<td>플랫화이트</td>
+				<td>ICE 초코라떼</td>
+			</tr>
+			<tr>
+				<td>4000</td>
+				<td>4500</td>
+				<td>5000</td>
+				<td>5000</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- 주문내역 -->
+	<table id="order">
+		<thead>
+			<tr>
+				<th colspan="3">
+					<h1>ORDER</h1>
+				</th>
+			</tr>
+		</thead>
+
+		<!-- 메뉴 수량 디스플레이-->
+		<tbody>
+			<tr id="test" style="display:none">
+				<td>
+					<div id="display"></div>
+				</td>
+				<td>
+					<div id="count"></div>
+				</td>
+				<td>
+					<div id="butt">
+						<input type="button" id="minus" value="-">
+						<input type="button" id="plus" value="+">
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<!-- 주문 방법 선택 -->
+	<!--총금액-->
+	<table id="check">
+		<thead>
+			<tr>
+				<th colspan="3">
+					<h1>CHECK</h1>
+				</th>
+			</tr>
+		</thead>
+
+		<tbody id="of">
+			<tr>
+				<td>
+					<h3>TOTAL</h3>
+				</td>
+				<td colspan="2" id="total"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<h3>PAYMENT</h3>
+				</td>
+				<td colspan="2"><select name="payment" id="p">
+						<option value=""></option>
+						<option value="카드">카드</option>
+						<option value="현금">현금</option>
+						<option value="쿠폰">쿠폰</option>
+					</select></td>
+			</tr>
+
+			<tr>
+				<td>
+					<h3>PLACE</h3>
+				</td>
+					<td>
+						매장<input type="radio" name="takeout" value="매장">
+					</td>
+					<td>
+						Take Out<input type="radio" name="takeout" value="takeout">
+					</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td><input id="c" type="button" value="취소"> </td>
+				<td><input id="o" type="button" value="주문"></td>
+			</tr>
+
+		</tbody>
+	</table>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+div{
+display:inline;
+}
+#m{
+color:red;
+}
+
+</style>
+
+<script>
+
+var cnum = Math.random()*100+1;
+var num = parseInt(cnum);
+var guessnum = 0;
+var result='';
+
+function guess(){	
+	
+	var h = document.getElementById('result');
+	var gn = document.getElementById('guessnum');
+	
+	var usernum = parseInt(document.getElementById("user").value);
+	guessnum++;
+	
+	var mm = document.getElementById('m');
+	mm.innerHTML= '';
+
+	if (usernum>100 || usernum<0) {
+		mm.innerHTML='잘못된 값을 입력했습니다!';
+	}
+	
+	else{
+	if(num==usernum) h.innerHTML='성공입니다!';
+	else if (num<usernum) h.innerHTML='입력값보다 더 작은 값입니다.';
+	else h.innerHTML='입력값보다 더 큰 값입니다.';
+	gn.innerHTML=guessnum;
+	}
+	return;
+}
+
+</script>
+</head>
+
+
+<body>
+<h1>숫자 맞추기 게임</h1>
+<h5>이 게임은 컴퓨터가 생성한 숫자를 맞추는 게임입니다.</h5>
+<h5>숫자는 1부터 100 사이에 있습니다.</h5>
+<form>
+숫자 : <input type="text" id="user" size="5">
+<input type ="button" value="확인" onclick="guess();"><div id="m"></div></form>
+추측횟수 : <div id="guessnum"></div><br>
+힌트 : <div id="result"></div>
+
+</body>
+</html>

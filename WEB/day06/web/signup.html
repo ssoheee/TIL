@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+input:focus{
+background:gray;
+}
+div{
+display:inline;
+color:red;
+}
+</style>
+<script>
+	function signup(f) {
+		var id = f.id.value;
+		var pwd = f.pwd.value;
+		var pwdc = f.pwdc.value;
+		var hint = f.hint.value;
+		var hobby = f.hobby.value;
+		var age = f.age.value;
+		var m1 = document.getElementById('p1');
+		var m2 = document.getElementById('p2');
+		var m3 = document.getElementById('p3');
+		var m4 = document.getElementById('p4');
+		var m5 = document.getElementById('p5');
+		var m6 = document.getElementById('p6');
+		m1.innerHTML= '';
+		m2.innerHTML= '';
+		m3.innerHTML= '';
+		m4.innerHTML= '';
+		m5.innerHTML= '';
+		m6.innerHTML= '';
+
+		if (id == '' || id == null) {
+			m1.innerHTML='Mandatory field!';
+			f.id.focus();
+			return;
+		}
+		if (pwd == '' || pwd == null) {
+			m2.innerHTML='Mandatory field!';
+			f.pwd.focus();
+			return;
+		}
+		if (pwdc == '' || pwdc == null) {
+			m3.innerHTML='Mandatory field!';
+			f.pwdc.focus();
+			return;
+		}
+		
+		if (pwd!=pwdc) {
+			m3.innerHTML='Check your password!';
+			f.pwdc.focus();
+			return;
+		}
+		
+		if (hint == '' || hint == null) { //
+			m4.innerHTML='Mandatory field!';
+			f.hint.focus();
+			return;
+		}
+		if (hobby == '' || hobby == null) { //
+			m5.innerHTML='Mandatory field!';
+			return;
+		}
+		if (age == '' || age == null) {
+			m6.innerHTML='Mandatory field!';
+			f.age.focus();
+			return;
+		}
+
+		if (pwd!=pwdc) {
+			m3.innerHTML='Check your password!';
+			f.pwdc.focus();
+			return;
+		}
+
+		var c = confirm('Login?');
+		if (c == true) {
+			f.submit();
+		}
+	};
+</script>
+</head>
+<body>
+
+	<h1>SIGNUP PAGE</h1>
+
+	<form action="login" method="get">
+		ID <input type="text" name="id"> <div id="p1"></div> <br> 
+		
+		PWD <input type="text" name="pwd"> <div id="p2"></div> <br> 
+		PWD CHECK <input type="text" name="pwdc"> <div id="p3"></div> <br> 
+		
+		HINT <select name="hint">
+		<option value=""></option>
+			<option value="a">1</option>
+			<option value="b">2</option>
+			<option value="c">3</option>
+			<option value="d">4</option>
+			<option value="e">5</option>
+		</select> <div id="p4"></div><br>
+	
+		HOBBY 
+		TRAIN
+		<input type="radio" name="hobby" value="t"> 
+		STUDY
+		<input type="radio" name="hobby" value="s"> 
+		MUSIC
+		<input type="radio" name="hobby" value="m"> 
+		<div id="p5"></div> <br> 
+		
+		AGE <input type="number" name="age"> <div id="p6"></div> <br> 
+		<input onclick="signup(this.form);" type="button" value="signup">
+	</form>
+</body>
+</html>

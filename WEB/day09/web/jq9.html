@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<style>
+		div {
+			width: 200px;
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		var person = [
+			{ img: '1.png', id: "id01", name: "이말숙" },
+			{ img: '2.jpg', id: "id02", name: "김말숙" },
+			{ img: '3.jpg', id: "id03", name: "정말숙" },
+			{ img: '4.jpg', id: "id04", name: "황말숙" },
+			{ img: '5.jpg', id: "id05", name: "오말숙" }
+		];
+		$(document).ready(function () {
+			var result = '';
+
+
+			/*$(person).each(function (idx, item) {
+				result += '<h1>' + item.id + ' ' + item.name + '</h1>'
+			});
+			$('div').html(result); //reuslt값을 뿌린다*/
+
+			// jquery에서 for문 돌리는방법
+			$(person).each(function (idx, item) {
+				result = '<img src="'+item.img+'">'+'<br>'+'<h1>' + item.id + ' ' + item.name + '</h1>'
+				$('div').append(result);
+			});
+			
+		});
+	</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+
+</html>

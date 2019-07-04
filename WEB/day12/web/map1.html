@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?"></script>
+
+	<style>
+		#map {
+			width: 300px;
+			height: 300px;
+			border: 2px solid black;
+		}
+	</style>
+	<script>
+		$(document).ready(function () {
+			var center = new google.maps.LatLng(33.429334, 126.307179);
+			var map = new google.maps.Map(
+				document.querySelector('#map'), // 여기엔 jquery 쓰면 안됨
+				{
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					zoom: 12,
+					center: center
+				}
+			);
+
+			$('button').click(function(){
+				var center = new google.maps.LatLng(41.950422, 12.466069);
+				map.setCenter(center);
+			});
+
+			/* // HTML5 Geolocation API (gps 이용)
+				function success(p){ // 성공하면 경도와 위도를 줌
+					var center = new google.maps.LatLng(p.coords.latitude, p.coords.longtitud);
+					map.setCenter(ceter);
+				};
+				function error(){
+					alert('Location Error');
+				};
+	
+				var watch = window.navigator.geolocation.watchPosition(
+					success,
+					error,
+					{
+						enableHighAccuracy:true,
+						timeout:10000, // 10초동안 못 잡으면 에러
+						maximumAge:0 // 계속해서 위치를 받는다. (0만 움직여도 받아온다.)
+					}
+					);	*/
+		});
+	</script>
+</head>
+
+<body>
+	<button>Italy</button>
+	<div id="map"></div>
+</body>
+
+</html>

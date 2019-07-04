@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<style></style>
+	<script>
+		$(document).ready(function () {
+			$('a').click(function () {
+				var id= $('#rf>input[name="id"]').val();
+				var pwd= $('#rf>input[name="pwd"]').val();
+				var name= $('#rf>input[name="name"]').val();
+				var c = confirm('Are You Sure?');
+				if (c==true){
+					$('#rf').attr('method','get'); // get 방식으로 보냄
+					$('#rf').attr('action','a.jsp');
+					$('#rf').submit(); // submit은 그냥 날리는거
+				} // 서버로 보내는 방법
+				// alert(id); // 확인용
+			});
+
+			$('#rf>input[name="id"]').blur( // id 입력창을 나가면 실행됨
+				function(){
+				var id = $('#rf>input[name="id"]').val();
+				if(id.length<5){
+					alert('아이디 길이가 짧습니다');
+				}
+			});
+
+		}); // end onload
+	</script>
+</head>
+
+<body>
+	<h1>REGISTER</h1>
+	<form id="rf">
+		ID <input type="text" name="id"><br>
+		PWD <input type="password" name="pwd"><br>
+		NAME <input type="text" name="name"><br>
+		<a href="#">REGISTER</a>
+	</form>
+</body>
+
+</html>

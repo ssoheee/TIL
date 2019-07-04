@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<style></style>
+	<script>
+
+		function go(result){
+			if (result == '1') {
+			$(location).attr('href', 'main.html');
+			} else{
+				alert('로그인에 실패했습니다.');
+			}
+		}
+
+		function sendData(i,p) {
+			var surl = 'login';
+			$.ajax({
+				url: surl,
+				method: "post",
+				data: { "id": i, "pwd": p},
+				success: function (result) {
+					go(result);
+				}
+			});
+		};
+
+		$(document).ready(function () {
+			$('button').click(function () {
+				var id = $('input[name="id"]').val();
+				var pwd = $('input[name="pwd"]').val();
+				sendData(id, pwd);
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1>LOGIN PAGE</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>ID</td>
+				<td> <input type="text" name="id"></td>
+				<td id="d1"></td>
+			</tr>
+			<tr>
+				<td>PWD</td>
+				<td><input type="text" name="pwd" pattern="/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/"></td>
+				<td id="d2"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>
+					<button>LOGIN</button></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

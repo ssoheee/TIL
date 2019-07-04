@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<style></style>
+	<script>
+		var exp1 = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
+		var exp2 = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
+
+		function display(result) {
+			if (result == '1') {
+				$('#d1').text('사용 가능한 ID입니다.');
+			} else {
+				$('#d1').text('중복 ID입니다.');
+			}
+		}
+
+		function go(result){
+			if (result == '1') {
+			alert('가입  완료');
+			$(location).attr('href', 'login.html');
+			} else{
+				alert('가입에 실패했습니다.');
+			}
+		}
+
+		function checkId(id) {
+			$.ajax({
+				url: 'signup',
+				data: { 'id': id },
+				method: 'get',
+				success: function (result) {
+					display(result);
+				}
+			});
+		};
+
+		function checkPwd(pwd) {
+			if (exp1.test(pwd)) {
+				$('#d2').text('사용 가능한 비밀번호입니다.');
+			} else {
+				$('#d2').text('최소 1개의 숫자 혹은 특수 문자를 포함하여 6-20자리 영문을입력하세요.');
+			}
+		};
+
+		function checkPwd2(pwd, pwd2) {
+			if (pwd2 == pwd) {
+				$('#d3').text('비밀번호가 일치합니다.');
+			} else {
+				$('#d3').text('동일한 비밀번호를 입력해주세요.');
+			}
+		};
+
+		function checkMail(mail) {
+			if (exp2.test(mail)) {
+				$('#d4').text('사용 가능한 이메일입니다.');
+			} else {
+				$('#d4').text('형식에 맞는 이메일 주소를 입력하세요.');
+			}
+		};
+
+		function sendData(n, i, p1, p2, m) {
+			var surl = 'signup';
+			$.ajax({
+				url: surl,
+				method: "post",
+				data: { "name": n, "id": i, "pwd": p1, "pwd2": p2, "mail": m },
+				success: function (result) {
+					go(result);
+				}
+
+			});
+		};
+
+		$(document).ready(function () {
+			$('button').click(function () {
+				var name = $('input[name="name"]').val();
+				var id = $('input[name="id"]').val();
+				var pwd = $('input[name="pwd"]').val();
+				var pwd2 = $('input[name="pwd2"]').val();
+				var mail = $('input[name="mail"]').val();
+				sendData(name, id, pwd, pwd2, mail);
+			});
+			$('input[name="id"]').keyup(function () {
+				var id = $(this).val();
+				checkId(id);
+			});
+			$('input[name="pwd"]').keyup(function () {
+				var pwd = $(this).val();
+				checkPwd(pwd);
+			});
+			$('input[name="pwd2"]').keyup(function () {
+				var pwd = $('input[name="pwd"]').val();
+				var pwd2 = $(this).val();
+				checkPwd2(pwd, pwd2);
+			});
+			$('input[name="mail"]').keyup(function () {
+				var mail = $(this).val();
+				checkMail(mail);
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1>SIGN UP PAGE</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					NAME</td>
+				<td><input type="text" name="name"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>ID</td>
+				<td> <input type="text" name="id"></td>
+				<td id="d1"></td>
+			</tr>
+			<tr>
+				<td>PWD</td>
+				<td><input type="text" name="pwd" pattern="/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/"></td>
+				<td id="d2"></td>
+			</tr>
+			<tr>
+				<td>PWD CHECK</td>
+				<td><input type="text" name="pwd2" pattern="/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/"></td>
+				<td id="d3"></td>
+			</tr>
+			<tr>
+				<td>MAIL</td>
+				<td><input type="text" name="mail" pattern="/^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/"></td>
+				<td id="d4"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>
+					<button>SIGN UP</button></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+
+/* div css*/
+
+.bt>a {
+	font-family: 'Anton', sans-serif;
+	font-weight:bold;
+	font-size:2.5em;
+	display:block; /* 이 속성을 바꿔준 게 중요 */
+	width:130px;
+	hieght:60px;
+	text-align:center;
+	line-height:80px;
+	background: white;
+	border: 10px solid black;
+	border-radius:20px;
+	margin:10px auto;
+}
+
+.bt>a:hover
+{
+box-shadow:5px 5px 5px black;
+}

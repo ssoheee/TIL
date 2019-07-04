@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script>
+	/* var Sk = {
+	 data:10,
+	 a:function(){ alert('sk'); }
+	 };
+	 var Hb = {
+	 data:20,
+	 a:function(){ alert('sk'); }
+	 };
+
+	 Sk.a(); */
+	var t = function() {
+		var time = document.getElementById('time');
+		var result = '';
+		var date = new Date();
+		result = date.toLocaleTimeString();
+		time.innerHTML = result;
+	};
+	setInterval(t, 1000); // 1초에 한번씩 t함수 호출해라
+</script>
+</head>
+<body>
+	<h1 id="time"></h1>
+</body>
+</html>
+
+

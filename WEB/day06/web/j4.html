@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+</style>
+<script>
+function calc(){
+	var num1 = document.getElementById('n1').value;
+	var num2 = document.getElementById('n2').value;
+	var sum = Number(num1)+Number(num2);
+	var r = document.getElementById('result');
+	r.style.color='red'; // a태그 있으면 안바뀜
+	if (isNaN(sum)){
+		r.innerHTML='0';
+	}
+	else{
+		r.innerHTML =sum;
+	}
+	
+	var rr = document.getElementById('rr');
+	rr.value=sum; // input 폼에선 value사용
+};
+</script>
+</head>
+<body>
+<form>
+NUMBER1 <input type="text" id="n1"><br>
+NUMBER2 <input type="text" id="n2"><br>
+Result <input readonly="readonly" type="number" id="rr"><br> <!-- readonly로 조작못하게 -->
+<input type="button" value="Calc"
+onclick="calc();"> <!-- name은 서버에 전송하지 않고 화면에서만 실행, id는 서버에 전송하기 위해 부여 -->
+</form>
+<h1 id="result"></h1>
+</body>
+</html>

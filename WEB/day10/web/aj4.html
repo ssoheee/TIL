@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<style></style>
+	<script>
+		function display(result){
+			if(result =='1'){
+				$('span').text('사용가능');
+			}else{
+				$('span').text('사용불가');
+			}
+		}
+		function checkId(id){
+			$.ajax({
+				url:'register',
+				data:{'id':id},
+				method:'get',
+				success:function(result){
+					display(result);
+				}
+			});
+		};
+		$(document).ready(function () {
+			$('input[type="button"]').click(function () {
+				$('#login_form').attr('method', 'post');
+				$('#login_form').attr('action', 'register'); // 서버에 login이라는 서버 프로그램이 있는 것
+				$('#login_form').submit();
+			});
+			$('input[name="id"]').keyup(function(){
+				var id = $(this).val();
+				checkId(id);
+			});
+		});
+
+	</script>
+</head>
+
+<body>
+	<h1>REGISTER</h1>
+	<form id="login_form">
+		ID<input type="text" name="id"><span></span><br>
+		PWD<input type="text" name="pwd"><br>
+		NAME<input type="text" name="name"><br>
+		<input type="button" value="REGISTER">
+	</form>
+</body>
+
+</html>

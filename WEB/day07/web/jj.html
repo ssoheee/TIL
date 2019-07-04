@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+td, tr {
+	border: 1px solid black;
+	text-align: center;
+	font-weight: bold;
+}
+
+table {
+	width: 200px;
+	height: 300px;
+	border-collapse: collapse;
+}
+
+
+</style>
+<script>
+
+	function getnum(value) {
+
+		this.value = document.getElementById('num').value;
+		result.innerHTML += value;
+	};
+	function clearr() {
+		result.innerHTML = ' ';
+	};
+	function getresult() {
+		var gr = eval(result.innerHTML);
+		result.innerHTML = result.innerHTML + '=' + gr;
+
+	};
+</script>
+</head>
+<body>
+	<table>
+		<tbody>
+			<tr>
+				<td colspan="4"><h2 id="result"></h2></td>
+			</tr>
+			<tr>
+				<td><input onclick="getnum(this.value);" id="a" type="button"
+					value="+"></td>
+				<td><input onclick="getnum(this.value);" id="s" type="button"
+					value="-"></td>
+				<td><input onclick="getnum(this.value);" id="m" type="button"
+					value="*"></td>
+				<td><input onclick="getnum(this.value);" id="d" type="button"
+					value="/"></td>
+			</tr>
+			<tr>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="1"></td>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="2"></td>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="3"></td>
+				<td><input onclick="clearr();" id="num" type="button" value="C"></td>
+			</tr>
+			<tr>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="4"></td>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="5"></td>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="6"></td>
+				<td><input onclick="getresult();" id="num" type="button"
+					value="="></td>
+			</tr>
+			<tr>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="7"></td>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="8"></td>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="9"></td>
+				<td><input onclick="getnum(this.value);" id="num" type="button"
+					value="0"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

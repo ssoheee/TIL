@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+div{
+border:1px solid black;
+}
+
+#div1 > h3{/* div조건은 밑에가 적용된다.*/
+	color : red;
+}
+
+#div2 h3{/*div2에 있는 모든 h3*/
+	color : yellow;
+}
+
+#div2 h3{/*div2에 있는 모든 h3 , 밑에 있는 것이 우선 그래서 위에 꺼보다 이것이 먼저 작동*/
+	color : green;
+}
+
+#div2 > div > h3{/* div2 h3 보다 강력해서 위랑이것중에 이것이 작동 (>는 화살표)*/
+	color : blue;
+}
+</style>
+
+
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Selector</h1>
+<div id="div1">
+  <h3>Header3</h3>
+</div>
+
+<div id="div2">
+	<div>	
+	<h3>Header3</h3>	
+	</div>	
+</div>
+
+</body>
+</html>

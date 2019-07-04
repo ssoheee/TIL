@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+</style>
+<script>
+	function getresult() {
+		d1.innerHTML='';
+		d2.innerHTML='';
+		var dr = document.myform.drink;
+		var pr = document.myform.payment.value;
+
+		d2.innerHTML=pr;
+		for ( var i in dr) {
+			if (dr[i].checked == true) {
+				d1.innerHTML+=dr[i].value+" ";
+			};
+		};
+		
+		
+	};
+</script>
+</head>
+<body>
+	<form name="myform">
+		<table>
+			<tbody>
+				<tr>
+					<td colspan="3">포카리 <input type="checkbox" name="drink"
+						value="포카리"> 게토레이 <input type="checkbox" name="drink"
+						value="게토레이"> 2% <input type="checkbox" name="drink"
+						value="2%"></td>
+				</tr>
+				<tr>
+					<td>지불방법 <select name="payment">
+							<option value=""></option>
+							<option value="카드">카드</option>
+							<option value="현금">현금</option>
+					</select></td>
+					<td><input type="button" value="선택" onclick="getresult();"></td>
+				</tr>
+				<tr ><td>선택음료 : </td>
+					<td id="d1" colspan="2"></td>
+				</tr>
+				<tr ><td>결제수단 : </td>
+					<td id="d2" colspan="2"></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>

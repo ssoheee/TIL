@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+
+<script>
+function login(f){
+	var c = confirm('Login Completed!');
+	if (c==true){
+		f.method='GET';
+		f.action="https://github.com/ssoheee/TIL";
+		f.submit();		
+	};
+};
+
+function signup(){
+	location.href='signup.html';
+};
+</script>
+
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>WELCOME!</h1>
+<img src="hello.jpg">
+<form>
+<table>
+<tbody>
+<tr><td>ID</td><td><input type="text" name="id"></td>
+<tr><td>PWD</td><td><input type="password" name="pwd"></td>
+<tr><td><input type="button" value="LOGIN" onclick="login(this.form);"></td>
+<td><input type="button" value="SIGNUP" onclick="signup();"></td></tr>
+</tbody>
+</table>
+</form>
+
+</body>
+</html>
