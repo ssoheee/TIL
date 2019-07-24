@@ -1,0 +1,9 @@
+* 우리가 수정해야할 것
+
+1. DORDER로 보냈을 때도 ORDERM DB로 저장되게
+2. 카트에서 수량 올렸을 때 수정된 수량으로 CORDER로 넘어가게 만들기
+3. ORDER SUCCESS 페이지에서 ODERM 정보 뿌리기
+
+4. Product Delete 시 cart에 담겨있는 물품 수정불가 개선
+5. Product CRUD제약 조건 및 DB_TABLE 확장(VARCHAR2(100))
+6. 지도 뿌리기
