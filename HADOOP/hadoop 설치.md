@@ -35,6 +35,8 @@
 
 5. systemctl disable firewalld
 
+   systemctl stop firewalld
+
 
 
 6. vi /etc/hadoop-1.2.1/conf/core-site.xml (추가)
@@ -131,3 +133,8 @@
     hadoop dfs -put README.txt /data/input1 하둡서버에 README.txt 보냄
 
     hadoop jar hadoop-examples-1.2.1.jar wordcount /data/input1 /data/output1 앞에 있는 문서를 분석하여 뒤에 있는 폴더에 저장
+    
+    
+    
+    
+    
