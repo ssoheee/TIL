@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mini.mapper.OrdermMapper">
+
+<!-- 
+	<resultMap type="user" id="um">
+		<result property="identification" column="id"/>
+		<result property="password" column="pwd"/>
+		<result property="username" column="name"/>
+	</resultMap> -->	
+
+	<insert id="insert" parameterType="orderm">
+		INSERT INTO CART_TB VALUES (NULL,#{customer_id},#{order_qt},#{order_total_price},SYSDATE,#{dt_addr},#{dt_contact_no},#{order_payment},#{order_status})	
+	</insert>
+	
+	<!-- <update id="update" parameterType="cart">
+		UPDATE CART_TB SET PWD=#{pwd},NAME=#{name} WHERE ID=#{id}
+	</update> -->
+	
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM CART_TB WHERE order_main_no=#{order_main_no}
+	</delete>
+	
+	<select id="select" parameterType="String" 
+	resultType="orderm">	
+		SELECT * FROM CART_TB WHERE customer_id=#{customer_id}	
+	</select>
+	
+	<select id="selectall" resultType="orderm">
+		SELECT * FROM CART_TB ORDER BY 1
+	</select>
+		
+
+</mapper>
+
+
+
+
+
+
