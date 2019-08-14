@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mini.mapper.ProductMapper">
+	
+	<select id="select" parameterType="Integer" 
+	resultType="product">
+		SELECT * FROM PRODUCT_TB WHERE product_no=#{obj}
+	</select>
+	<select id="selectall" resultType="product">
+		SELECT * FROM PRODUCT_TB
+	</select>
+	<insert id="insert" parameterType="product">
+		INSERT INTO PRODUCT_TB VALUES
+		(PRODUCT_TB_SEQ.NEXTVAL,#{cate},#{product_nm},#{product_price},#{product_st},#{product_picture1},#{product_picture2},#{product_picture3},#{farm_license_no},#{farm_nm},#{farm_ceo},#{farm_addr},#{farm_phone})
+
+	</insert>
+	<update id="update" parameterType="product">
+		UPDATE PRODUCT_TB SET cate=#{cate},product_nm=#{product_nm},product_price=#{product_price},product_picture1=#{product_picture1},product_picture2=#{product_picture2},product_picture3=#{product_picture3},farm_nm=#{farm_nm},farm_ceo=#{farm_ceo},farm_addr=#{farm_addr},farm_phone=#{farm_phone} WHERE product_no=#{product_no}
+	</update>
+	<delete id="delete" parameterType="INTEGER">
+		DELETE FROM PRODUCT_TB WHERE product_no=#{product_no}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
